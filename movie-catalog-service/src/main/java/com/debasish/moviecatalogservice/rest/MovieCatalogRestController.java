@@ -36,11 +36,12 @@ public class MovieCatalogRestController {
     @GetMapping("/{userId}")
     public List<CatalogItem> getCatalogs(@PathVariable(name = "userId") String userId) {
 
-        UserRating ratings = restTemplate.getForObject("http://rating-data-service/ratingsdata/users/" + userId, UserRating.class); // It will map with the spring.application.name that we have provided in app.properties file.
+        // It will map with the spring.application.name that we have provided in app.properties file.
+        UserRating ratings = restTemplate.getForObject("http://rating-data-service/ratingsdata/users/" + userId, UserRating.class);
 
         return ratings.getUserRating().stream().map(rating -> {
             // for each movie ID, call movie info service and get details
-            Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class);
+            Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class); // It will map with the spring.application.name that we have provided in app.properties file.
             // Put them all together
             return new CatalogItem(movie.getName(), movie.getDescription(), rating.getRating());
         }).collect(Collectors.toList());
