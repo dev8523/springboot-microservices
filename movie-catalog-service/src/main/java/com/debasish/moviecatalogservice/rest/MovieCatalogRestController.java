@@ -36,7 +36,7 @@ public class MovieCatalogRestController {
     @GetMapping("/{userId}")
     public List<CatalogItem> getCatalogs(@PathVariable(name = "userId") String userId) {
 
-        UserRating ratings = restTemplate.getForObject("http://rating-data-service/ratingsdata/users/" + userId, UserRating.class);
+        UserRating ratings = restTemplate.getForObject("http://rating-data-service/ratingsdata/users/" + userId, UserRating.class); // It will map with the spring.application.name that we have provided in app.properties file.
 
         return ratings.getUserRating().stream().map(rating -> {
             // for each movie ID, call movie info service and get details
