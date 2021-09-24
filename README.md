@@ -6,7 +6,7 @@ This is a Movie Catalog API application.
 - We are doing Service Discovery using Eureka Client which will perform load balancing on the client side.
 
 # Components Description
-discovery-server : Eureka Server
-movie-info-service : Eureka Client
-movie-catalog-service : Eureka Client
-rating-data-service : Eureka Client
+- discovery-server : Eureka Server
+- movie-info-service : Eureka Client
+- movie-catalog-service : Eureka Client
+- rating-data-service : Eureka Client
