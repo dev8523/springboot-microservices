@@ -14,9 +14,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="discovery-server" target="11" />
-      <module name="movie-catalog-service" target="11" />
-      <module name="movie-info-service" target="11" />
-      <module name="rating-data-service" target="11" />
+      <module name="movie-catalog-service" target="1.8" />
+      <module name="movie-info-service" target="1.8" />
+      <module name="rating-data-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

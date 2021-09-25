@@ -1,26 +1,0 @@
-
-Q	java:S125("<This block of commented-out lines of code should be removed.(Ú¯Ë–
-\
-java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿ
-n
-java:S1128"YRemove this unused import 'org.springframework.http.client.reactive.ClientHttpConnector'.(Ó¨ó
-l
-java:S1128"QRemove this unused import 'org.springframework.http.codec.ClientCodecConfigurer'.(˜û†Ìÿÿÿÿÿ
-^
-java:S1128	"CRemove this unused import 'org.springframework.util.MultiValueMap'.(·ÚÀŞùÿÿÿÿ
-
-java:S1128"dRemove this unused import 'org.springframework.web.reactive.function.client.ExchangeFilterFunction'.(ÀÌµùÿÿÿÿ
-t
-java:S1128"^Remove this unused import 'org.springframework.web.reactive.function.client.ExchangeFunction'.(¼üæ‰
-v
-java:S1128"`Remove this unused import 'org.springframework.web.reactive.function.client.ExchangeStrategies'.(Øé±ù
-r
-java:S1128"WRemove this unused import 'org.springframework.web.reactive.function.client.WebClient'.(¬à•ıÿÿÿÿ
-a
-java:S1128"KRemove this unused import 'org.springframework.web.util.UriBuilderFactory'.(ß¶˜Ï
-F
-java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ
-E
-java:S1128"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ
-S
-java:S1128"8Remove this unused import 'java.util.function.Consumer'.(Ì†ƒÔùÿÿÿÿ
