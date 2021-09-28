@@ -3,6 +3,7 @@ package com.debasish.moviecatalogservice.rest;
 import com.debasish.moviecatalogservice.models.CatalogItem;
 import com.debasish.moviecatalogservice.models.Movie;
 import com.debasish.moviecatalogservice.models.UserRating;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,15 +26,24 @@ public class MovieCatalogRestController {
     private RestTemplate restTemplate;
 
     /*
-    * Use this if you want to do advanced load balancing. It executes the bean at the start of the spring app.
-    */
+     * Use this if you want to do advanced load balancing. It executes the bean at the start of the spring app.
+     */
     @Autowired
     private DiscoveryClient discoveryClient;
 
     /*@Autowired
     private WebClient.Builder webClientBuilder;*/
 
+    /**
+     * Description for @HystrixCommand : We are telling hystrix this is the method which shouldn't cause the whole thing to go down.
+     * We want to break the circuit when something goes down.
+     * <p>
+     *
+     * @param userId
+     * @return List<CatalogItem>
+     */
     @GetMapping("/{userId}")
+    @HystrixCommand
     public List<CatalogItem> getCatalogs(@PathVariable(name = "userId") String userId) {
 
         // It will map with the spring.application.name that we have provided in app.properties file.
