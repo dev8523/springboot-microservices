@@ -4,6 +4,7 @@ import com.debasish.moviecatalogservice.models.CatalogItem;
 import com.debasish.moviecatalogservice.models.Movie;
 import com.debasish.moviecatalogservice.models.Rating;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -27,7 +28,14 @@ public class MovieInfoService {
      * @param rating rating fields to be set.
      * @return List<CatalogItem>
      */
-    @HystrixCommand(fallbackMethod = "getFallbackCatalogItem")
+    @HystrixCommand(
+            fallbackMethod = "getFallbackCatalogItem",
+            threadPoolKey = "movieInfoPool",
+            threadPoolProperties = {
+                    @HystrixProperty(name = "coreSize", value = "20"),
+                    @HystrixProperty(name = "maxQueueSize", value = "10"),
+            }
+    )
     public CatalogItem getCatalogItem(Rating rating) {
         Movie movie = restTemplate.getForObject("http://movie-info-service/movies/" + rating.getMovieId(), Movie.class); // It will map with the spring.application.name that we have provided in app.properties file.
         // Put them all together
